@@ -14,10 +14,10 @@ export const Login = () => {
       .catch((err) => console.log(err))
   }
   return (
-    <div className="login-page">
+    <div className="flex flex-col items-center">
       <h2 className="text-2xl text-[#fff] my-9">Continuar con Google</h2>
       <button
-        className="button hover:bg-black transition-all duration-500"
+        className="bg-white p-3 rounded-lg hover:bg-black hover:text-white transition-all duration-500"
         onClick={signIn}
       >
         Sign In With Google

@@ -51,12 +51,13 @@ export const imageGenerationForm = () => {
     const input = event.target.elements.input.value
     setPrompt(input)
     const response = await fetch(
+      "https://api-inference.huggingface.co/models/dataautogpt3/OpenDalleV1.1",
+      // Huggingface models test
       // "https://api-inference.huggingface.co/models/stabilityai/runwayml/stable-diffusion-v1-5",
-      "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0",
+      // "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0",
       // "https://api-inference.huggingface.co/models/CompVis/stable-diffusion-v1-4",
-      // "https://api-inference.huggingface.co/models/dataautogpt3/OpenDalleV1.1",
-      // "https://api-inference.huggingface.co/models/dataautogpt3/OpenDalle", - Works
-      // "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0", //Works
+      // "https://api-inference.huggingface.co/models/dataautogpt3/OpenDalle",
+      // "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0",
       // "https://api-inference.huggingface.co/models/thibaud/sdxl_dpo_turbo",
 
       {
@@ -95,14 +96,21 @@ export const imageGenerationForm = () => {
           Describe tu idea
         </h1>
       </div>
-      <form className="generate-form mt-2" onSubmit={handleSubmit}>
+      <form
+        className="flex items-center w-full mt-2 gap-4"
+        onSubmit={handleSubmit}
+      >
         <input
+          className="flex p-3 w-full rounded-md bg-gray-50 border border-gray-300"
           type="text"
           name="input"
           placeholder="Describe tu idea aqui..."
         />
 
-        <button type="submit" className="button">
+        <button
+          type="submit"
+          className="bg-white p-3 rounded-lg hover:bg-black hover:text-white transition-all duration-500"
+        >
           Generar
         </button>
       </form>
@@ -112,7 +120,7 @@ export const imageGenerationForm = () => {
         </div>
       )}
       {!loading && output && (
-        <div className="result-image">
+        <div className="flex flex-col items-center justify-center h-1/5 w-full my-5">
           <img src={output} alt="art" />
           <div className="action">
             <button onClick={handleDownload}>

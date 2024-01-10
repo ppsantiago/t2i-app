@@ -29,7 +29,7 @@ export const Navbar = () => {
         )}
         {user ? (
           <div className="link">
-            <div className="d-flex">
+            <div className="flex items-center">
               <button className="link" onClick={logOut}>
                 Cerrar sesion
               </button>
