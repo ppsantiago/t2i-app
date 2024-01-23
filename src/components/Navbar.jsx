@@ -12,28 +12,31 @@ export const Navbar = () => {
     navigator("/")
   }
   return (
-    <header>
-      <script src="https://cdn.tailwindcss.com"></script>
+    <header className="flex items-center justify-between px-5 py-3 mb-20 bg-gray-800 ">
       <h3 className="text-3xl font-bold text-[#fff]">SPCODEV T2I</h3>
 
-      <div className="menu">
-        <Link className="link" to="/">
+      <div className="flex items-center justify-between gap-5 text-white">
+        <Link className="hover:text-gray-500" to="/">
           Inicio
         </Link>
         {user && (
           <>
-            <Link className="link" to={"/generate"}>
+            <Link className="hover:text-gray-500" to={"/generate"}>
               Generar
             </Link>
           </>
         )}
         {user ? (
-          <div className="link">
-            <div className="flex items-center">
-              <button className="link" onClick={logOut}>
-                Cerrar sesion
+          <div className="flex mx-7  ">
+            <div className="flex items-center  gap-2">
+              <button className="hover:text-gray-500" onClick={logOut}>
+                Salir
               </button>
-              <img className="logo" src={user.photoURL} alt="" />{" "}
+              <img
+                className="border-2 border-white rounded-full w-10 h-10"
+                src={user.photoURL}
+                alt=""
+              />{" "}
             </div>
           </div>
         ) : (

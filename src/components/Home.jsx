@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { getDocs, collection } from "firebase/firestore"
 import { db } from "../conf/firebajse-config"
 import DisplayPost from "./DisplayPost"
+import { CircularIndeterminate } from "./AnimationLoader"
 // import { CircularIndeterminate } from "./AnimationLoader"
 import FormField from "./FormField"
 
@@ -44,9 +45,9 @@ export const Home = () => {
   return (
     <section className="max-full px-32 mx-30px-auto pt-16 flex justify-center items-center flex-col">
       <div>
-        <h1 className="font-extrabold text-[#fff] text-[32px]">
+        <h2 className="font-extrabold text-[#fff] text-[32px]">
           Generados por la comunidad
-        </h1>
+        </h2>
         <p className="mt-2 text-[#666e75] text-[14px] max-w-[500px]">
           Busca por palabra clave los diseños que han sido generados por la
           comunidad.
@@ -66,7 +67,9 @@ export const Home = () => {
 
       <div className="mt-10">
         {loading ? (
-          <div className="flex justify-center items-center"></div>
+          <div className="w-full flex flex-col justify-center items-center my-20">
+            <CircularIndeterminate />
+          </div>
         ) : (
           <>
             {searchText && (

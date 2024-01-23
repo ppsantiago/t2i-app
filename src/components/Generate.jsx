@@ -51,14 +51,14 @@ export const imageGenerationForm = () => {
     const input = event.target.elements.input.value
     setPrompt(input)
     const response = await fetch(
-      "https://api-inference.huggingface.co/models/dataautogpt3/OpenDalleV1.1",
+      // "https://api-inference.huggingface.co/models/dataautogpt3/OpenDalleV1.1",
       // Huggingface models test
       // "https://api-inference.huggingface.co/models/stabilityai/runwayml/stable-diffusion-v1-5",
       // "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0",
       // "https://api-inference.huggingface.co/models/CompVis/stable-diffusion-v1-4",
       // "https://api-inference.huggingface.co/models/dataautogpt3/OpenDalle",
       // "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0",
-      // "https://api-inference.huggingface.co/models/thibaud/sdxl_dpo_turbo",
+      "https://api-inference.huggingface.co/models/thibaud/sdxl_dpo_turbo",
 
       {
         method: "POST",
@@ -101,6 +101,7 @@ export const imageGenerationForm = () => {
         onSubmit={handleSubmit}
       >
         <input
+          disabled={loading}
           className="flex p-3 w-full rounded-md bg-gray-50 border border-gray-300"
           type="text"
           name="input"
@@ -115,20 +116,26 @@ export const imageGenerationForm = () => {
         </button>
       </form>
       {loading && (
-        <div className="loading w-full flex flex-col justify-center ">
+        <div className="w-full flex flex-col justify-center items-center my-20">
           <CircularIndeterminate />
         </div>
       )}
       {!loading && output && (
         <div className="flex flex-col items-center justify-center h-1/5 w-full my-5">
-          <img src={output} alt="art" />
-          <div className="action">
-            <button onClick={handleDownload}>
+          <img src={output} alt="art" className="rounded-xl" />
+          <div className="flex gap-10">
+            <button
+              onClick={handleDownload}
+              className="bg-white p-3 rounded-lg hover:bg-black hover:text-white transition-all duration-500 mt-5"
+            >
               <FileDownloadIcon />
               Download
             </button>
             {user && (
-              <button onClick={uploadImage}>
+              <button
+                onClick={uploadImage}
+                className="bg-white p-3 rounded-lg hover:bg-black hover:text-white transition-all duration-500 mt-5"
+              >
                 <ShareIcon />
                 Share
               </button>

@@ -3,8 +3,13 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -13,106 +18,16 @@ body {
     monospace;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 80px;
-  background-color: #141414;
-}
-
-header .menu {
-  display: flex;
-  align-items: center;
-}
-
-.menu .logo {
-  border-radius: 50%;
-  height: 30px;
-  width: 30px;
-  border: 1px solid #ddd;
-  margin-right: 10px;
-}
-
-.menu button {
-  background-color: transparent;
-  color: #333;
-  border: none;
-  font-size: 15px;
-}
-
-header .menu .link {
-  padding: 10px 20px;
-  text-decoration: none;
-  color: #555;
-  font-weight: 700;
-}
-
-header .menu .link:hover {
-  color: #fff;
-}
-
-.image-gen .result-image {
-  max-width: 400px;
-  margin: auto;
-  margin-top: 20px;
-}
-
-.result-image img {
-  width: 100%;
-  border-radius: 5px;
-  height: auto;
-}
-
-.result-image .action {
-  display: flex;
-}
-
-.action button {
-  background-color: #f5f9fb;
-  color: #333;
-  border: none;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 5px;
-}
-
-.loading {
-  display: flex;
-  width: 100%;
-  text-align: center;
-  margin: 70px auto;
-  align-items: center;
-}
-
-.loading p {
-  margin: auto;
-  text-align: center;
-}
-
-.share-form {
-  display: none;
-}
-
-.logo {
-  border: 1px solid #ddd;
-  border-radius: 50%;
-  height: 40px;
-  width: 40px;
-}
-
 @media screen and (max-width: 1000px) {
   header {
-    padding: 8px;
-    font-size: 15px;
+    display: flex !important;
+    flex-direction: column !important;
   }
 
-  header .menu .link {
-    padding: 8px 10px;
-    font-size: 14px;
+  header h3 {
+    font-size: 15px !important;
+  }
+  main section {
+    padding: 20px !important;
   }
 }
