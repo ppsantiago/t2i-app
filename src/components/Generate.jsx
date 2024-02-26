@@ -8,7 +8,7 @@ import { v4 } from "uuid"
 import { collection, addDoc } from "firebase/firestore"
 import { useAuthState } from "react-firebase-hooks/auth"
 
-const API_TOKEN = "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"
+const API_TOKEN = ""
 
 export const imageGenerationForm = () => {
   useEffect(() => {
